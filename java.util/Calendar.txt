@@ -1,0 +1,27 @@
+原文：http://kang36897.blog.163.com/blog/static/1704737320106261042230/
+
+Calendar：中文的翻译就是日历
+
+Java 本身提供了对 "Gregorian Calendar" 规则的实现。
+从 Calendar.getInstance() 中所获得的实例就是一个 "GreogrianCalendar" 对象(与您通过 new GregorianCalendar() 获得的结果一致)。
+
+Calendar 在 Java 中是一个抽象类(Abstract Class)，GregorianCalendar 是它的一个具体实现。
+我们也可以自己的 Calendar 实现类，然后将它作为 Calendar 对象返回(面向对象的特性)。
+
+Calendar 与 Date 的转换非常简单：
+	Calendar-->Date
+		Calendar calendar = Calendar.getInstance();
+		// 从一个 Calendar 对象中获取 Date 对象
+		Date date = calendar.getTime();
+		
+	Date-->Calendar
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		
+Calendar 的 set() 方法
+	set(int field, int value) - 是用来设置"年/月/日/小时/分钟/秒/微秒"等值
+	
+	月份的起始值为０而不是１，所以要设置八月时，我们用７而不是8。
+	calendar.set(Calendar.MONTH, 7);
+	
+	在 Calendar 的方法中，get() 和 add() 会让 Calendar 立刻刷新。Calendar 为了性能原因对 set() 方法采取延缓计算的方法。
