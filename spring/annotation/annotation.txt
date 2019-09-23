@@ -1,0 +1,42 @@
+@component （把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""/>）
+
+	使用lombok注解，目的和作用就在于不用再去写经常反复去写的（如Getter，Setter，Constructor等）一些代码了。
+		@Data
+		使用这个注解，就不用再去手写Getter,Setter,equals,canEqual,hasCode,toString等方法了，注解后在编译时会自动加进去。
+		@AllArgsConstructor
+		使用后添加一个构造函数，该构造函数含有所有已声明字段属性参数
+		@NoArgsConstructor
+		使用后创建一个无参构造函数
+		@Builder
+		关于Builder较为复杂一些，Builder的作用之一是为了解决在某个类有很多构造函数的情况，也省去写很多构造函数的麻烦，在设计模式中的思想是：用一个内部类去实例化一个对象，避免一个类出现过多构造函数，
+	
+
+@Api	用于类；表示标识这个类是swagger的资源
+	tags–表示说明
+	value–也是说明，可以使用tags替代 但是tags如果有多个值，会生成多个list
+	详细描述：https://blog.csdn.net/HiBoyljw/article/details/81110553
+
+	swagger是当前最好用的Restful  API文档生成的开源项目,通过swagger-spring项目实现了springMVC框架的无缝集成功能,方便生成restful风格的接口文档,
+
+	同时,swagger-ui还可以测试spring  restful风格的接口功能
+
+	作用范围                         API                                          使用位置
+
+	对象属性                        @ApiModelProperty                           用在参数对象的字段上
+
+	协议集描述                      @Api                                        用在Conntroller类上
+
+	协议描述                        @ApiOperation                               用在controller方法上
+
+	Response集                      @ApiResponses                               用在controller方法上
+
+	Response                        @ApiResponse                                用在@ApiResponses里面
+
+	非对象参数集                    @ApilmplicitParams                          用在controller方法上
+
+	非对象参数描述	                @ApiImplicitParam	                        用在@ApiImplicitParams的方法里边
+	
+	描述返回对象的意义	            @ApiModel	                                用在返回对象类上
+	
+	
+@RestController   相当于@ResponseBody ＋ @Controller合在一起的作用
