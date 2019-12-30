@@ -1,0 +1,2 @@
+1¡¢MapÊÇ·ñÎª¿Õ
+	Map.isEmpty()
